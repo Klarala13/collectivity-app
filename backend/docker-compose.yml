@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:alpine
+    env_file:
+      - ./.env
+    environment:
+      POSTGRES_DB: ${DATABASE}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_EXTERNAL_PORT}:${DB_INTERNAL_PORT}"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+      
+volumes:
+  db_data:

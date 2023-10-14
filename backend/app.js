@@ -16,15 +16,6 @@ const freebiesRouter = require("./routes/freebies");
 
 const { Client } = require("pg");
 
-if (!process.env.IMAGE_UPLOAD_DIR) {
-  console.log(
-    "Buhh you need to put a IMAGE_UPLOAD_DIR environment variable in your .env"
-  );
-  process.exit(1);
-} else {
-  console.log("Hello from postgres");
-}
-
 const client = new Client({
   user: process.env.DBUSER,
   host: process.env.HOST,
