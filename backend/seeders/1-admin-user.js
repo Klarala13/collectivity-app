@@ -1,12 +1,12 @@
 const { v4: uuidv4 } = require("uuid");
 
 module.exports = {
-    up: async (queryInterface, Sequelize) => {
+    up: async (queryInterface) => {
         await queryInterface.bulkInsert(
             "users",
             [
                 {
-                    user_id: uuidv4(), // Generate a UUID for this field
+                    user_id: uuidv4(),
                     first_name: "The",
                     last_name: "Admin",
                     email: "admin@dci.de",
@@ -22,7 +22,7 @@ module.exports = {
         );
     },
 
-    down: async (queryInterface, Sequelize) => {
+    down: async (queryInterface) => {
         await queryInterface.bulkDelete("users", null, {});
     },
 };
