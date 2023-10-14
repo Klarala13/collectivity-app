@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "rn-soft-ui-kit-free",
-    "slug": "rn-soft-ui-kit-free",
-    "description": "React Native - Soft UI Kit - Free",
+    "name": "collectivity",
+    "slug": "collectivity",
+    "description": "App for sharing  or donating items",
     "primaryColor": "#CB0C9F",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -19,16 +19,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.TradingCards"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#CB0C9F"
       }
+      ,"package": "com.anonymous.collectivity"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     }
-  }
+  },
+  "name": "collectivity"
 }

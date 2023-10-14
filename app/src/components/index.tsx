@@ -6,7 +6,7 @@ import Modal from './Modal';
 import Switch from './Switch';
 import Checkbox from './Checkbox';
 import Image from './Image';
-import Article from './Article';
+import Article from './Item';
 import Product from './Product';
 
 export {

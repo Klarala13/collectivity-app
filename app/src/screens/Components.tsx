@@ -208,24 +208,6 @@ const Switches = () => {
   );
 };
 
-// social example
-const Social = () => {
-  const {sizes} = useTheme();
-
-  return (
-    <Block paddingVertical={sizes.m} paddingHorizontal={sizes.padding}>
-      <Text p semibold marginBottom={sizes.s}>
-        Social
-      </Text>
-      <Block row justify="space-evenly">
-        <Button social="facebook" />
-        <Button social="twitter" />
-        <Button social="dribbble" />
-      </Block>
-    </Block>
-  );
-};
-
 // cards example
 const Cards = () => {
   const {assets, colors, gradients, sizes} = useTheme();

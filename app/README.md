@@ -1,5 +1,7 @@
 ### TO RUN THE APP
-npm run start 
+
+ios: npx expo run:ios
+android: npx expo run:android
 
 ### FRONTEND COMPONENTS
 Right now, all components are part of a template. It must be restructured to contain the real application.
@@ -7,11 +9,20 @@ Right now, all components are part of a template. It must be restructured to con
 PAGES:
 -HOME -> welcome message and items listing
 -PROFILE -> user info and messages 
--ITEMS (add, edit, delete)
+-ITEMSLIST (add, edit, delete items) You should be able to filter by category and by location (user´s city/postal code)
+-PROFILE (list of item´s shared, user info, user picture)
+-REGISTER
 -NAVIGATION
+
+### NICE TO HAVES
+-ITEM DETAIL 
+-TRANSLATIONS
+-RECENTLY SEEN WIDGET, RECENTLY BORROWED WIDGET
+-GEO LOCALIZATION FOR DISPLAYING ITEMS NEAR YOU 
 
 ### BACKEND ROUTES
 We will need to able to login, have an admin login, create/delete/update items and allow users to message eachother and admin. 
+We should also be able to display the user´s profile 
 
 ## File Structure
 Within the download you'll find the following directories and files:
