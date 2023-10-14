@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "collectivity",
+    "slug": "collectivity",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+
+    "description": "App for sharing items",
+    "primaryColor": "#CB0C9F",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#CB0C9F"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#CB0C9F"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  },
+  "name": "collectivity"
+}
+
+
