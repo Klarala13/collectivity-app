@@ -5,7 +5,13 @@
   "scripts": {
     "start": "node ./bin/www",
     "debug": "DEBUG=collectivity:* node --inspect ./bin/www",
-    "watch": "DEBUG=collectivity:* nodemon --inspect ./bin/www"
+    "clean": "rm -rf node_modules",
+    "watch": "DEBUG=collectivity:* nodemon --inspect ./bin/www",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "migrate:all": "npm run migrate && npm run seed",
+    "seed": "npx sequelize-cli db:seed:all",
+    "seed:undo": "npx sequelize-cli db:seed:undo"
   },
   "dependencies": {
     "body": "^5.1.0",
@@ -18,7 +24,7 @@
     "express-validator": "^7.0.1",
     "faker": "^4.1.0",
     "http-errors": "^1.7.2",
-    "jimp": "^0.22.10",
+    "jimp": "^0.3.5",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.19",
     "lowdb": "^1.0.0",
@@ -26,10 +32,14 @@
     "morgan": "~1.9.0",
     "multer": "^1.4.1",
     "parser": "^0.1.4",
-    "pg": "^8.11.3",
-    "shortid": "^2.2.14"
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.33.0",
+    "shortid": "^2.2.14",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.3",
+    "sequelize-cli": "^6.6.1"
   }
 }
