@@ -15,7 +15,6 @@ const client = new Client({
 client.connect();
 
 const listFreebies = (req, res, next) => {
-  console.log("freebies");
   try {
     const freebieQuery = "select * from public.freebies";
     client.query(freebieQuery).then(response => {
@@ -48,7 +47,6 @@ const getFreebieById = (req, res, next) => {
 };
 
 const getFreebieUser = (req, res, next) => {
-
   console.log("req.body", req.body);
   try {
     const userQuery = `select * from public.users WHERE user_id='${

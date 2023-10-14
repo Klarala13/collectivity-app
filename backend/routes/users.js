@@ -127,26 +127,6 @@ const getFreebiesByUser = (req, res, next) => {
   }
 };
 
-const getSkillsByUser = (req, res, next) => {
-  console.log("getSkillsByUser", req.decoded);
-  try {
-    const skillsQuery = `select * from public.skills WHERE user_id=${
-      req.decoded.user_id
-    }`;
-    console.log(skillsQuery);
-    client.query(skillsQuery).then(response => {
-      console.log("Here we go", response.rows, req.decoded);
-      if (response.rows.length === 0) {
-        res.send(responseObject(404, "No skills yet."));
-      } else {
-        res.send(responseObject(200, "Success", { skills: response.rows }));
-      }
-    });
-  } catch (e) {
-    console.log("ERROR", e);
-  }
-};
-
 const signIn = (req, res, next) => {
   try {
     const userQuery = `select * from public.users WHERE email='${
@@ -248,7 +228,6 @@ router
   .post(upload.single("image"), resizeImages, addUser);
 router.route("/profile").get(isAuthenticated, getUser);
 router.route("/own_freebies").get(isAuthenticated, getFreebiesByUser);
-router.route("/own_skills").get(isAuthenticated, getSkillsByUser);
 router.route("/signin").post(signIn);
 
 module.exports = router;

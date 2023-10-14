@@ -13,7 +13,6 @@ app.use(setCorsHeaders);
 
 const usersRouter = require("./routes/users");
 const freebiesRouter = require("./routes/freebies");
-const skillsRouter = require("./routes/skills");
 
 const { Client } = require("pg");
 
@@ -162,67 +161,7 @@ app.get("/", function(req, res) {
   });
 });
 
-async function seedSkills() {
-  return client
-    .query("select * from public.skills")
-    .then(res => {
-      if (
-        res.rowCount >= 1 &&
-        res.rows.filter(skill => skill.skill === "Cooking").length > 0
-      ) {
-        console.log("Skills in the table");
-      } else {
-        client.query(
-          `INSERT INTO public.skills("skill", "description", "location", "time_span", "category", "user_id") 
-        VALUES ('Cooking', 'I can cook all kinds of german dishes', 'Your house', '1.5', 'House_Garden', 1);
-        INSERT INTO public.skills("skill", "description", "location", "time_span", "category", "user_id") 
-        VALUES ('Cleaning', 'I can clean super fast', 'My house', '0.5', 'House_Garden', 1)`
-        );
-        console.log("Skills seeded");
-      }
-    })
-    .catch(e => console.error(e.stack));
-}
 
-// Creation of skills table
-
-client.query("SELECT to_regclass('public.skills')").then(async res => {
-  // check if table skills already exists
-  if (res.rows[0].to_regclass !== null) {
-    client.query("SELECT to_regclass('public.users')").then(async resp => {
-      //check if table users exists for the foreign key
-      if (resp.rows[0].to_regclass !== null) {
-        const response = await seedSkills();
-      }
-    });
-  } else {
-    client.query(
-      `CREATE TABLE public.skills
-        (   "skill_id" SERIAL PRIMARY KEY,
-            "skill" character varying (50) NOT NULL,
-            "description" character varying (300),
-            "location" character varying,
-            "time_span" real NOT NULL,
-            "category" character varying NOT NULL 
-            CHECK (category IN ('House_Garden', 'Fashion', 'Motors', 'Entertainment', 'Electronics', 'Art_Collectibles', 'Sports', 'Toys', 'Media', 'Pets', 'Others')),
-            "user_id" integer NOT NULL,
-            CONSTRAINT "user_fkey" FOREIGN KEY ("user_id")
-            REFERENCES public.users ("user_id") MATCH SIMPLE
-        )
-        WITH (
-          OIDS = FALSE
-      )
-      TABLESPACE pg_default;
-
-        ALTER TABLE public.skills
-            OWNER to postgres;
-      `
-    );
-    console.log("Skills table created")
-  }
-});
-
-// Other stuff
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -236,7 +175,6 @@ app.get("/", function(req, res) {
 
 app.use("/users", usersRouter);
 app.use("/freebies", freebiesRouter);
-app.use("/skills", skillsRouter);
 
 // Catch any route that is not recognized
 app.use((req, res, next) => {
