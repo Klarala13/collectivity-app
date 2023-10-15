@@ -82,28 +82,6 @@ export const ASSETS: any = {
   android: require('../../assets/images/android.png'),
 };
 
-export const FONTS: any = {
-  // based on font size
-  text: 'OpenSans-Regular',
-  h1: 'OpenSans-Bold',
-  h2: 'OpenSans-Bold',
-  h3: 'OpenSans-Bold',
-  h4: 'OpenSans-Bold',
-  h5: 'OpenSans-SemiBold',
-  p: 'OpenSans-Regular',
-
-  // based on fontWeight
-  thin: 'OpenSans-Light',
-  extralight: 'OpenSans-Light',
-  light: 'OpenSans-Light',
-  normal: 'OpenSans-Regular',
-  medium: 'OpenSans-SemiBold',
-  semibold: 'OpenSans-SemiBold',
-  bold: 'OpenSans-Bold',
-  extrabold: 'OpenSans-ExtraBold',
-  black: 'OpenSans-ExtraBold',
-};
-
 export const LINE_HEIGHTS: ThemeLineHeights = {
   // font lineHeight
   text: 22,
@@ -118,7 +96,6 @@ export const LINE_HEIGHTS: ThemeLineHeights = {
 export const THEME: ICommonTheme = {
   icons: ICONS,
   assets: {...ICONS, ...ASSETS},
-  fonts: FONTS,
   weights: WEIGHTS,
   lines: LINE_HEIGHTS,
   sizes: {width, height},

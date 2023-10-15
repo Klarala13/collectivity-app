@@ -5,27 +5,37 @@ import {useTheme} from '../hooks';
 import AddItemForm from './AddItemForm';
 import MessagingScreen from './MessagingScreen';
 import Profile from './Profile';
+import Container from '../components/Container';
+import {AntDesign, FontAwesome5} from '@expo/vector-icons';
+import {Block} from '../components';
 
 const Tab = createBottomTabNavigator();
 
-import {Block, Image} from '../components';
-
 const Home = () => {
   //Add products List
-  const {icons} = useTheme();
 
   return (
     <>
-      <Block style={{backgroundColor: '#fff', marginTop: 100}}>
-        <Text style={{textAlign: 'center', color: '#000', fontSize: 32}}>
+      <Container>
+        <Text
+          style={{
+            textAlign: 'center',
+            color: '#000',
+            fontSize: 24,
+          }}>
           Welcome to Collectivity
         </Text>
-        <Text style={{textAlign: 'center', color: '#000', fontSize: 24}}>
+        <Text
+          style={{
+            textAlign: 'center',
+            color: '#000',
+            fontSize: 16,
+          }}>
           This is an app for sharing or donating items, the idea is that we
           reuse things and don´t have to buy them all the time. That way, we can
           fight capitalism a little bit
         </Text>
-      </Block>
+      </Container>
 
       <Block
         style={{
@@ -39,16 +49,16 @@ const Home = () => {
             <Tab.Screen
               options={{
                 tabBarIcon: () => (
-                  <Image source={icons.register} color={'#7925C7'} />
+                  <AntDesign name="user" size={24} color="#7925C7" />
                 ),
               }}
-              name="User"
+              name="Profile"
               component={Profile}
             />
             <Tab.Screen
               options={{
                 tabBarIcon: () => (
-                  <Image source={icons.image} color={'#7925C7'} />
+                  <FontAwesome5 name="plus" size={24} color="#7925C7" />
                 ),
               }}
               name="AddItem"
@@ -57,7 +67,7 @@ const Home = () => {
             <Tab.Screen
               options={{
                 tabBarIcon: () => (
-                  <Image source={icons.chat} color={'#7925C7'} />
+                  <AntDesign name="message1" size={24} color="#7925C7" />
                 ),
               }}
               name="Messaging"

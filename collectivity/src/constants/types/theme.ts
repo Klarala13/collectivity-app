@@ -60,7 +60,6 @@ export interface ITheme {
 export interface ICommonTheme {
   assets: ThemeAssets & ThemeIcons;
   icons: ThemeIcons;
-  fonts: ThemeFonts;
   weights: ThemeWeights;
   lines: ThemeLineHeights;
   sizes: {
@@ -278,25 +277,6 @@ export interface ThemeAssets {
 
   ios: ImageSourcePropType;
   android: ImageSourcePropType;
-}
-
-export interface ThemeFonts {
-  text: string;
-  h1: string;
-  h2: string;
-  h3: string;
-  h4: string;
-  h5: string;
-  p: string;
-  thin: string;
-  extralight: string;
-  light: string;
-  normal: string;
-  medium: string;
-  bold: string;
-  semibold: string;
-  extrabold: string;
-  black: string;
 }
 
 export interface ThemeLineHeights {
