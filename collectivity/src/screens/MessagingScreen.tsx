@@ -2,6 +2,8 @@ import {Block} from '../components';
 import {Text, StyleSheet} from 'react-native';
 
 export default function Messaging() {
+  //retrieve user´s messages from BE
+  //Display list of user´s messages
   return (
     <Block>
       <Text style={styles.text}>{'Welcome to your messages'}</Text>
