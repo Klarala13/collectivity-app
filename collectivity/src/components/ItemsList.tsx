@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-
-import {Block, Product} from '.';
+import axios from 'axios';
+import Block from './Block';
 import {Text} from 'react-native';
 
 const ItemsList = () => {
@@ -11,11 +11,26 @@ const ItemsList = () => {
   //If you click on the name of the person sharing it, you go to the messaging page
   //Should have two filters: one by category and one by location
 
+  const submit = async () => {
+    const items = {
+      method: 'get',
+      //url: `${baseUrl}/collections`,
+      url: 'http://localhost:4000/listItems',
+      // headers: {
+      //   "content-type": "text/json",
+      // },
+    };
+    const res = await axios(items);
+    console.log(res);
+    console.log('response', res.data);
+  };
+
+  submit();
+
   return (
     <Block>
       {/* Filters */}
 
-      {/* Items list */}
       {/* <FlatList
         data={"items"}
         showsVerticalScrollIndicator={false}
