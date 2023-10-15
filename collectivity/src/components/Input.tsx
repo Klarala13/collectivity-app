@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import Block from './Block';
-import Text from './Text';
+import {Text} from 'react-native';
 
 import useTheme from '../hooks/useTheme';
 import {IInputProps} from '../constants/types';
@@ -120,11 +120,7 @@ const Input = ({
 
   return (
     <Block flex={0} style={inputBoxStyles}>
-      {label && (
-        <Text bold marginBottom={sizes.s}>
-          {label}
-        </Text>
-      )}
+      {label && <Text>{label}</Text>}
       <Block row align="center" justify="flex-end" style={inputContainerStyles}>
         {search && assets.search && (
           <Image

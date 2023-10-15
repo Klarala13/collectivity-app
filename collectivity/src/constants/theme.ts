@@ -32,9 +32,7 @@ export const WEIGHTS: any = {
 };
 
 export const ICONS: any = {
-  apple: require('../../assets/icons/apple.png'),
   google: require('../../assets/icons/google.png'),
-  facebook: require('../../assets/icons/facebook.png'),
   arrow: require('../../assets/icons/arrow.png'),
   articles: require('../../assets/icons/articles.png'),
   basket: require('../../assets/icons/basket.png'),
@@ -54,7 +52,6 @@ export const ICONS: any = {
   image: require('../../assets/icons/image.png'),
   location: require('../../assets/icons/location.png'),
   menu: require('../../assets/icons/menu.png'),
-  more: require('../../assets/icons/more.png'),
   notification: require('../../assets/icons/notification.png'),
   office: require('../../assets/icons/office.png'),
   payment: require('../../assets/icons/payment.png'),

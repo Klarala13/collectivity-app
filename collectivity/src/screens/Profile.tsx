@@ -1,20 +1,17 @@
-import React, {useCallback} from 'react';
-import {Platform, Linking} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
+import React from 'react';
+import {Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 
-import {Block, Button, Image, Text} from '../components/';
+import {Block, Image} from '../components/';
 import {
   //useData,
   useTheme,
-  useTranslation,
 } from '../hooks/';
 
 const isAndroid = Platform.OS === 'android';
 
 const Profile = () => {
   //const {user} = useData();
-  const {t} = useTranslation();
   const navigation = useNavigation();
   const {assets, colors, sizes} = useTheme();
 
@@ -40,7 +37,7 @@ const Profile = () => {
             paddingBottom={sizes.l}
             radius={sizes.cardRadius}
             source={assets.background}>
-            <Button
+            {/* <Button
               row
               flex={0}
               justify="flex-start"
@@ -56,7 +53,7 @@ const Profile = () => {
               <Text p white marginLeft={sizes.s}>
                 {t('profile.title')}
               </Text>
-            </Button>
+            </Button> */}
             <Block flex={0} align="center">
               {/* <Image
                 width={64}
@@ -71,27 +68,11 @@ const Profile = () => {
           </Image>
 
           {/* profile: about me */}
-          <Block paddingHorizontal={sizes.sm}>
-            <Text h5 semibold marginBottom={sizes.s} marginTop={sizes.sm}>
-              {t('profile.aboutMe')}
-            </Text>
-            <Text p lineHeight={26}>
-              {/* {user?.about} */}
-            </Text>
-          </Block>
+          <Block paddingHorizontal={sizes.sm}></Block>
 
           {/* profile: photo album */}
           <Block paddingHorizontal={sizes.sm} marginTop={sizes.s}>
-            <Block row align="center" justify="space-between">
-              <Text h5 semibold>
-                {t('common.album')}
-              </Text>
-              <Button>
-                <Text p primary semibold>
-                  {t('common.viewall')}
-                </Text>
-              </Button>
-            </Block>
+            <Block row align="center" justify="space-between"></Block>
             <Block row justify="space-between" wrap="wrap">
               <Image
                 resizeMode="cover"

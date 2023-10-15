@@ -1,4 +1,4 @@
-import {Block} from '.';
+import {Block} from '../components';
 import {Text, StyleSheet} from 'react-native';
 
 export default function Messaging() {

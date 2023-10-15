@@ -5,7 +5,7 @@ import {useTheme} from '../hooks/';
 import {IModalProps} from '../constants/types';
 
 import Block from './Block';
-import Button from './Button';
+import Button from './Button/button';
 import Image from './Image';
 
 const Modal = ({
@@ -36,7 +36,8 @@ const Modal = ({
             top={0}
             right={0}
             position="absolute"
-            onPress={() => onRequestClose?.()}>
+            //</Block>onPress={() => onRequestClose?.()}
+          >
             <Image source={assets.close} color={colors.white} />
           </Button>
           <Block

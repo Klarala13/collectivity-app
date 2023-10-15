@@ -2,7 +2,7 @@ import {ViewStyle, StyleProp} from 'react-native';
 import {useTheme} from '../../hooks';
 
 export type ButtonProps = {
-  variant: 'primary' | 'secondary' | 'outline' | 'text';
+  variant?: 'primary' | 'secondary' | 'outline' | 'text';
   isFullWidth?: boolean;
   isDisabled?: boolean;
   isLoading?: boolean;

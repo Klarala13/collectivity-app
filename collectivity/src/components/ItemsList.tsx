@@ -9,18 +9,19 @@ const ItemsList = () => {
   //Iterate through the items, each item should have a name, a description and the name of the person sharing it
   //If you click on the item, you go to the Item´s detail page
   //If you click on the name of the person sharing it, you go to the messaging page
+  //Should have two filters: one by category and one by location
 
   return (
     <Block>
-      {/* categories list */}
+      {/* Filters */}
 
       {/* Items list */}
-      <FlatList
-        data={items}
+      {/* <FlatList
+        data={"items"}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => `${item?.id}`}
         renderItem={({item}) => <Product {...item} />}
-      />
+      /> */}
     </Block>
   );
 };

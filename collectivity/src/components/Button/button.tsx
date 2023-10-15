@@ -22,16 +22,7 @@ const Button = (props: ButtonProps) => {
       disabled={isDisabled || isLoading}
       testID="button"
       {...restProps}>
-      {!isLoading && (
-        <Text
-          color={'' || 'neutral-00'}
-          size="sm"
-          weight={variant === 'text' ? 400 : 600}
-          numberOfLines={1}
-          adjustsFontSizeToFit={true}>
-          {title}
-        </Text>
-      )}
+      {!isLoading && <Text>{title}</Text>}
       {isLoading && <Spinner color="#ffffff" />}
     </TouchableOpacity>
   );

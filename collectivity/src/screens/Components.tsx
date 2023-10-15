@@ -2,10 +2,11 @@ import React, {useLayoutEffect, useState} from 'react';
 import {FlatList, TouchableOpacity} from 'react-native';
 
 import {useNavigation} from '@react-navigation/core';
-import {useHeaderHeight} from '@react-navigation/stack';
+//import {useHeaderHeight} from '@react-navigation/stack';
 
 import {useTheme} from '../hooks/';
-import {Block, Button, Input, Image, Switch, Modal, Text} from '../components/';
+import {Block, Button, Input, Image, Switch, Modal} from '../components/';
+import {Text} from 'react-native';
 
 // buttons example
 const Buttons = () => {
@@ -15,22 +16,16 @@ const Buttons = () => {
 
   return (
     <Block paddingHorizontal={sizes.padding}>
-      <Text p semibold marginBottom={sizes.s}>
-        Buttons
-      </Text>
+      <Text>Buttons</Text>
       <Block>
-        <Button flex={1} gradient={gradients.primary} marginBottom={sizes.base}>
-          <Text white bold transform="uppercase">
-            Primary
-          </Text>
+        <Button variant={'primary'}>
+          <Text>Primary</Text>
         </Button>
         <Button
           flex={1}
           gradient={gradients.secondary}
           marginBottom={sizes.base}>
-          <Text white bold transform="uppercase">
-            Secondary
-          </Text>
+          <Text>Secondary</Text>
         </Button>
         <Button flex={1} gradient={gradients.info} marginBottom={sizes.base}>
           <Text white bold transform="uppercase">
