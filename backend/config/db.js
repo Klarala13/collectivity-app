@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
-const sequelize = require("../config/config").development;
+const config = require("./config").development;
 
-const db = new Sequelize(sequelize);
+const db = new Sequelize(config);
 
 async function connectToDatabase() {
     try {
@@ -16,5 +16,6 @@ async function connectToDatabase() {
 }
 
 module.exports = {
+    db,
     connectToDatabase,
 };

@@ -23,7 +23,7 @@ module.exports = {
                     item_id: itemId1,
                     item: "Ball",
                     description: "My old football",
-                    image: "https://example.com/football.jpg",
+                    image: "https://media.istockphoto.com/id/478217557/es/foto/xxl-muy-antiguos-f%C3%BAtbol-aislado-sobre-blanco.jpg?s=612x612&w=is&k=20&c=8hHB3MiI-QuvuESSEMtUL2rhKFSvQlbc-HC338u4VJY=",
                     zip_code: "12345",
                     location: "My house",
                     category: "Sports",

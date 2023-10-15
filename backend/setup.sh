@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# Function to handle cleanup
-cleanup() {
-    echo "Caught SIGINT, stopping services..."
-    docker compose down
-    kill $npm_start_pid
-    exit 0
-}
-
-# Catch SIGINT signal (Ctrl+C)
-trap 'cleanup' SIGINT
-
-
 echo -e "
 Welcome!
 -----"
@@ -72,12 +60,7 @@ fi
 # Migrate the database
 npm run migrate:all
 
-# Start API
-npm start &
-
-# Open API & Admin in the default web browser
-open http://localhost:4000 &
-open http://localhost:8080 
+    echo "Database is setup."
 
 # Keep the script running
 wait
