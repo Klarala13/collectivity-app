@@ -5,6 +5,7 @@ import { Home } from './screens';
 
 export default function App() {
   const isHermes = () => !!global.HermesInternal;
+  
   return (
     <View style={styles.container}>
       <Home/>
