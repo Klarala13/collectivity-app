@@ -3,8 +3,9 @@ import {Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 import {useTheme} from '../hooks';
 import * as regex from '../constants/regex';
-import {Block, Input, Image, Checkbox} from '.';
-import {Text, Button} from 'react-native';
+import {Button, Image} from '.';
+import {Text} from 'react-native';
+import Container from './Container';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -64,23 +65,19 @@ const Login = () => {
   }, [registration, setIsValid]);
 
   return (
-    <Block safe marginTop={sizes.md}>
-      <Block paddingHorizontal={sizes.s}>
-        <Block flex={0} style={{zIndex: 0}}>
-          <Image
-            background
-            resizeMode="cover"
-            padding={sizes.sm}
-            radius={sizes.cardRadius}
-            source={assets.background}
-            height={sizes.height * 0.3}>
-            <Button onPress={() => navigation.goBack()} title="Go Back" />
+    <Container>
+      <Image
+        background
+        resizeMode="cover"
+        padding={sizes.sm}
+        radius={sizes.cardRadius}
+        source={assets.background}
+        height={sizes.height * 0.3}>
+        <Button onPress={() => navigation.goBack()} title="Go Back" />
 
-            <Text>Login</Text>
-          </Image>
-        </Block>
-      </Block>
-    </Block>
+        <Text>Login</Text>
+      </Image>
+    </Container>
   );
 };
 
