@@ -74,7 +74,6 @@ const Login = () => {
         source={assets.background}
         height={sizes.height * 0.3}>
         <Button onPress={() => navigation.goBack()} title="Go Back" />
-
         <Text>Login</Text>
       </Image>
     </Container>

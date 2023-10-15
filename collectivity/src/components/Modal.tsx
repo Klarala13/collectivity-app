@@ -32,12 +32,7 @@ const Modal = ({
       onRequestClose={onRequestClose}>
       <Block justify="flex-end">
         <Block safe card flex={0} color="rgba(0,0,0,0.8)">
-          <Button
-            top={0}
-            right={0}
-            position="absolute"
-            //</Block>onPress={() => onRequestClose?.()}
-          >
+          <Button title={'string'}>
             <Image source={assets.close} color={colors.white} />
           </Button>
           <Block

@@ -8,7 +8,8 @@ import {
   useTranslation,
 } from '../hooks';
 import * as regex from '../constants/regex';
-import {Block, Button, Input, Image, Text, Checkbox} from '.';
+import {Block, Input, Image, Checkbox} from '.';
+import {Text} from 'react-native';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -78,27 +79,7 @@ const Register = () => {
             radius={sizes.cardRadius}
             source={assets.background}
             height={sizes.height * 0.3}>
-            <Button
-              row
-              flex={0}
-              justify="flex-start"
-              onPress={() => navigation.goBack()}>
-              <Image
-                radius={0}
-                width={10}
-                height={18}
-                color={colors.white}
-                source={assets.arrow}
-                transform={[{rotate: '180deg'}]}
-              />
-              <Text p white marginLeft={sizes.s}>
-                {t('common.goBack')}
-              </Text>
-            </Button>
-
-            <Text h4 center white marginBottom={sizes.md}>
-              {t('register.title')}
-            </Text>
+            <Text>{t('register.title')}</Text>
           </Image>
         </Block>
         {/* register form */}
@@ -119,33 +100,7 @@ const Register = () => {
               overflow="hidden"
               justify="space-evenly"
               paddingVertical={sizes.sm}>
-              <Text p semibold center>
-                {t('register.subtitle')}
-              </Text>
-              {/* social buttons */}
-              <Block row center justify="space-evenly" marginVertical={sizes.m}>
-                <Button outlined gray shadow={!isAndroid}>
-                  <Image
-                    source={assets.facebook}
-                    height={sizes.m}
-                    width={sizes.m}
-                  />
-                </Button>
-                <Button outlined gray shadow={!isAndroid}>
-                  <Image
-                    source={assets.apple}
-                    height={sizes.m}
-                    width={sizes.m}
-                  />
-                </Button>
-                <Button outlined gray shadow={!isAndroid}>
-                  <Image
-                    source={assets.google}
-                    height={sizes.m}
-                    width={sizes.m}
-                  />
-                </Button>
-              </Block>
+              <Text>{t('register.subtitle')}</Text>
               <Block
                 row
                 flex={0}
@@ -161,9 +116,7 @@ const Register = () => {
                   start={[0, 1]}
                   gradient={gradients.divider}
                 />
-                <Text center marginHorizontal={sizes.s}>
-                  {t('common.or')}
-                </Text>
+                <Text>{t('common.or')}</Text>
                 <Block
                   flex={0}
                   height={1}
@@ -212,10 +165,9 @@ const Register = () => {
                   checked={registration?.agreed}
                   //onPress={(value) => handleChange({agreed: value})}
                 />
-                <Text paddingRight={sizes.s}>
+                <Text>
                   {t('common.agree')}
                   <Text
-                    semibold
                     onPress={() => {
                       Linking.openURL('https://www.creative-tim.com/terms');
                     }}>
@@ -223,26 +175,7 @@ const Register = () => {
                   </Text>
                 </Text>
               </Block>
-              <Button
-                onPress={handleSignUp}
-                marginVertical={sizes.s}
-                marginHorizontal={sizes.sm}
-                gradient={gradients.primary}
-                disabled={Object.values(isValid).includes(false)}>
-                <Text bold white transform="uppercase">
-                  {t('common.signup')}
-                </Text>
-              </Button>
-              <Button
-                primary
-                outlined
-                shadow={!isAndroid}
-                marginVertical={sizes.s}
-                marginHorizontal={sizes.sm}>
-                <Text bold primary transform="uppercase">
-                  {t('common.signin')}
-                </Text>
-              </Button>
+              s
             </Block>
           </Block>
         </Block>
