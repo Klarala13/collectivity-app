@@ -5,7 +5,7 @@ import {useTheme} from '../hooks/';
 import {IModalProps} from '../constants/types';
 
 import Block from './Block';
-import Button from './Button/button';
+import Button from './Button';
 import Image from './Image';
 
 const Modal = ({

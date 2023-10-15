@@ -1,5 +1,5 @@
 import Block from './Block';
-import Button from './Button/button';
+import Button from './Button';
 import Input from './Input';
 import Modal from './Modal';
 import Switch from './Switch';
