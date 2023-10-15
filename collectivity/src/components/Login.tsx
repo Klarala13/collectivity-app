@@ -6,9 +6,9 @@ import {
   //useData,
   useTheme,
   useTranslation,
-} from '../hooks/';
+} from '../hooks';
 import * as regex from '../constants/regex';
-import {Block, Button, Input, Image, Text, Checkbox} from '../components/';
+import {Block, Button, Input, Image, Text, Checkbox} from '.';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -25,7 +25,7 @@ interface IRegistrationValidation {
   agreed: boolean;
 }
 
-const Register = () => {
+const Login = () => {
   //const {isDark} = useData();
   const {t} = useTranslation();
   const navigation = useNavigation();
@@ -50,7 +50,7 @@ const Register = () => {
   //   [setRegistration],
   // );
 
-  const handleSignUp = useCallback(() => {
+  const handleLogin = useCallback(() => {
     if (!Object.values(isValid).includes(false)) {
       /** send/save registratin data */
       console.log('handleSignUp', registration);
@@ -224,13 +224,13 @@ const Register = () => {
                 </Text>
               </Block>
               <Button
-                onPress={handleSignUp}
+                onPress={handleLogin}
                 marginVertical={sizes.s}
                 marginHorizontal={sizes.sm}
                 gradient={gradients.primary}
                 disabled={Object.values(isValid).includes(false)}>
                 <Text bold white transform="uppercase">
-                  {t('common.signup')}
+                  "Login"
                 </Text>
               </Button>
               <Button
@@ -240,7 +240,7 @@ const Register = () => {
                 marginVertical={sizes.s}
                 marginHorizontal={sizes.sm}>
                 <Text bold primary transform="uppercase">
-                  {t('common.signin')}
+                  "Login"
                 </Text>
               </Button>
             </Block>
@@ -251,4 +251,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
