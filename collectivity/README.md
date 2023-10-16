@@ -22,6 +22,7 @@ PAGES:
 -TRANSLATIONS
 -RECENTLY SEEN WIDGET, RECENTLY BORROWED WIDGET
 -GEO LOCALIZATION FOR DISPLAYING ITEMS NEAR YOU 
+-APP LOGO
 
 ### BACKEND ROUTES
 We will need to able to login, have an admin login, create/delete/update items and allow users to message eachother and admin. 

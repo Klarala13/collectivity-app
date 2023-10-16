@@ -1,111 +1,68 @@
-import React from 'react';
-import {Platform} from 'react-native';
-import {useNavigation} from '@react-navigation/core';
-
-import {Block, Image} from '../components/';
+import React, {useEffect, useState} from 'react';
 import {
-  //useData,
-  useTheme,
-} from '../hooks/';
-
-const isAndroid = Platform.OS === 'android';
+  ActivityIndicator,
+  FlatList,
+  View,
+  Text,
+  Image,
+  SafeAreaView,
+} from 'react-native';
+import axios from 'axios';
+import Container from '../components/Container';
 
 const Profile = () => {
-  //const {user} = useData();
-  const navigation = useNavigation();
-  const {assets, colors, sizes} = useTheme();
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const IMAGE_SIZE = (sizes.width - (sizes.padding + sizes.sm) * 2) / 3;
-  const IMAGE_VERTICAL_SIZE =
-    (sizes.width - (sizes.padding + sizes.sm) * 2) / 2;
-  const IMAGE_MARGIN = (sizes.width - IMAGE_SIZE * 3 - sizes.padding * 2) / 2;
-  const IMAGE_VERTICAL_MARGIN =
-    (sizes.width - (IMAGE_VERTICAL_SIZE + sizes.sm) * 2) / 2;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/user');
+        console.log(response.data.message.users);
+        setUsers(response.data.message.users);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
 
   return (
-    <Block safe marginTop={sizes.md}>
-      <Block
-        scroll
-        paddingHorizontal={sizes.s}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: sizes.padding}}>
-        <Block flex={0}>
-          <Image
-            background
-            resizeMode="cover"
-            padding={sizes.sm}
-            paddingBottom={sizes.l}
-            radius={sizes.cardRadius}
-            source={assets.background}>
-            {/* <Button
-              row
-              flex={0}
-              justify="flex-start"
-              onPress={() => navigation.goBack()}>
+    <SafeAreaView style={{flex: 1}}>
+      <Container>
+        <FlatList
+          data={users}
+          keyExtractor={(item) => item['user_id']}
+          renderItem={({item}) => (
+            <View style={{padding: 16}}>
               <Image
-                radius={0}
-                width={10}
-                height={18}
-                color={colors.white}
-                source={assets.arrow}
-                transform={[{rotate: '180deg'}]}
+                source={{uri: item['image']}}
+                style={{width: 100, height: 100}}
               />
-              <Text p white marginLeft={sizes.s}>
-                {t('profile.title')}
+              <Text>
+                Name: {item['first_name']} {item['last_name']}
               </Text>
-            </Button> */}
-            <Block flex={0} align="center">
-              {/* <Image
-                width={64}
-                height={64}
-                marginBottom={sizes.sm}
-                source={{uri: user?.avatar}}
-              /> */}
-              {/* <Text h5 center white>
-                {user?.name}
-              </Text> */}
-            </Block>
-          </Image>
-
-          {/* profile: about me */}
-          <Block paddingHorizontal={sizes.sm}></Block>
-
-          {/* profile: photo album */}
-          <Block paddingHorizontal={sizes.sm} marginTop={sizes.s}>
-            <Block row align="center" justify="space-between"></Block>
-            <Block row justify="space-between" wrap="wrap">
-              <Image
-                resizeMode="cover"
-                source={assets?.photo1}
-                style={{
-                  width: IMAGE_VERTICAL_SIZE + IMAGE_MARGIN / 2,
-                  height: IMAGE_VERTICAL_SIZE * 2 + IMAGE_VERTICAL_MARGIN,
-                }}
-              />
-              <Block marginLeft={sizes.m}>
-                <Image
-                  resizeMode="cover"
-                  source={assets?.photo2}
-                  marginBottom={IMAGE_VERTICAL_MARGIN}
-                  style={{
-                    height: IMAGE_VERTICAL_SIZE,
-                    width: IMAGE_VERTICAL_SIZE,
-                  }}
-                />
-                <Image
-                  resizeMode="cover"
-                  source={assets?.photo3}
-                  style={{
-                    height: IMAGE_VERTICAL_SIZE,
-                    width: IMAGE_VERTICAL_SIZE,
-                  }}
-                />
-              </Block>
-            </Block>
-          </Block>
-        </Block>
-      </Block>
-    </Block>
+              <Text>Email: {item['email']}</Text>
+              <Text>City: {item['city']}</Text>
+              <Text>Zip Code: {item['zip_code']}</Text>
+              <Text>Registration Date: {item['registration_date']}</Text>
+              <Text>Rating: {item['rating']}</Text>
+            </View>
+          )}
+        />
+      </Container>
+    </SafeAreaView>
   );
 };
 

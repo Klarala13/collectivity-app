@@ -1,7 +1,6 @@
 import {Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useTheme} from '../hooks';
 import AddItemForm from './AddItemForm';
 import MessagingScreen from './MessagingScreen';
 import Profile from './Profile';

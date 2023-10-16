@@ -12,17 +12,14 @@ const ItemsList = () => {
   //Should have two filters: one by category and one by location
 
   const submit = async () => {
-    const items = {
-      method: 'get',
-      //url: `${baseUrl}/collections`,
-      url: 'http://localhost:4000/listItems',
-      // headers: {
-      //   "content-type": "text/json",
-      // },
-    };
-    const res = await axios(items);
-    console.log(res);
-    console.log('response', res.data);
+    const res = axios
+      .get('http://localhost:4000/listItems')
+      .then((res) => {
+        console.log('res', res);
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   };
 
   submit();

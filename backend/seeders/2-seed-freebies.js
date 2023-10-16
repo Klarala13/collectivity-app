@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require("uuid");
 
 module.exports = {
     up: async (queryInterface) => {
-        const userEmail = "admin@dci.de";
+        const userEmail = "admin@hello.com";
 
         const user = await queryInterface.rawSelect(
             "users",
