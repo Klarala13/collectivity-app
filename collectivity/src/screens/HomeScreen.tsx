@@ -45,7 +45,12 @@ const Home = () => {
           justifyContent: 'space-between',
         }}>
         <NavigationContainer>
-          <Tab.Navigator screenOptions={{headerShown: true}}>
+          <Tab.Navigator
+            screenOptions={{
+              headerShown: true,
+              tabBarActiveTintColor: '#7925C7',
+              tabBarInactiveTintColor: '#000',
+            }}>
             <Tab.Screen
               options={{
                 tabBarIcon: () => (
