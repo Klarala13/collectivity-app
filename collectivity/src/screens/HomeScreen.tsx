@@ -2,11 +2,8 @@ import {Text} from 'react-native';
 import {Image} from '../components';
 import Container from '../components/Container';
 import {LOGO} from '../image';
-import {useTheme} from '../hooks/';
 
 const Home = () => {
-  const {sizes} = useTheme();
-  const isHorizontal = true;
   return (
     <>
       <Image
@@ -55,6 +52,19 @@ const Home = () => {
           This would be a widget with recently uploaded items
         </Text>
       </Container>
+
+      {/* Login Register Link  */}
+      {/* <Container>
+        <Text
+          style={{
+            textAlign: 'left',
+            color: '#000',
+            fontSize: 24,
+            padding: 20,
+          }}>
+          This would be a widget with recently uploaded items
+        </Text>
+      </Container> */}
     </>
   );
 };

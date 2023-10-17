@@ -9,7 +9,7 @@ module.exports = {
                     user_id: uuidv4(),
                     first_name: "The",
                     last_name: "Admin",
-                    email: "admin@hello.com",
+                    email: "admin@hillo.com",
                     password: "12345678",
                     city: "Berlin",
                     zip_code: 10234,

@@ -5,7 +5,7 @@ import MessagingScreen from './MessagingScreen';
 import Profile from './Profile';
 import {AntDesign, FontAwesome5} from '@expo/vector-icons';
 import {Block} from '../components';
-import ItemsList from '../components/ItemsList';
+import ItemsList from './ItemsList';
 import Home from '../screens/HomeScreen';
 
 const Tab = createBottomTabNavigator();

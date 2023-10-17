@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
-import ItemsList from '../components/ItemsList';
+import ItemsList from '../screens/ItemsList';
 import Messaging from '../screens/MessagingScreen';
 import {View} from 'react-native';
 
