@@ -2,7 +2,6 @@ import {Dimensions, Platform} from 'react-native';
 import {
   ICommonTheme,
   ThemeAssets,
-  ThemeFonts,
   ThemeIcons,
   ThemeLineHeights,
   ThemeWeights,
@@ -67,15 +66,7 @@ export const ICONS: any = {
 };
 
 export const ASSETS: any = {
-  // fonts
-  OpenSansLight: require('../../assets/fonts/OpenSans-Light.ttf'),
-  OpenSansRegular: require('../../assets/fonts/OpenSans-Regular.ttf'),
-  OpenSansSemiBold: require('../../assets/fonts/OpenSans-SemiBold.ttf'),
-  OpenSansExtraBold: require('../../assets/fonts/OpenSans-ExtraBold.ttf'),
-  OpenSansBold: require('../../assets/fonts/OpenSans-Bold.ttf'),
-
   // backgrounds/logo
-  logo: require('../../assets/images/logo.png'),
   header: require('../../assets/images/header.png'),
   background: require('../../assets/images/background.png'),
   ios: require('../../assets/images/ios.png'),
