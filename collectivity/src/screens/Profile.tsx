@@ -11,6 +11,7 @@ import {
 import axios from 'axios';
 import Container from '../components/Container';
 import {Poppins_400Regular} from '@expo-google-fonts/poppins';
+import UserItemsList from './UserItemsList';
 
 //Send user id to request so we get single user
 //Get user´s freebies and display under profile info
@@ -32,7 +33,6 @@ const Profile = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:4000/user');
-        console.log(response.data.message.users);
         setUsers(response.data.message.users);
         setLoading(false);
       } catch (error) {
@@ -75,6 +75,7 @@ const Profile = () => {
               <Text>Email: {item['email']}</Text>
               <Text>City: {item['city']}</Text>
               <Text>Zip Code: {item['zip_code']}</Text>
+              {/* <UserItemsList id={item['user_id'] ? item['user_id'] : ''} /> */}
             </View>
           )}
         />

@@ -9,13 +9,12 @@ To run your project, navigate to the directory and run one of the following npm 
 ### FRONTEND COMPONENTS
 Right now, all components are part of a template. It must be restructured to contain the real application.
 
-PAGES:
--HOME -> welcome message and items listing
--PROFILE -> user info and messages 
--ITEMSLIST (add, edit, delete items) You should be able to filter by category and by location (user´s city/postal code)
--PROFILE (list of item´s shared, user info, user picture)
--REGISTER
--NAVIGATION
+ToDo:
+-Login screen -> send request and finish UI
+-Register screen
+-Messaging screen
+-PROFILE -> load user´s item´s 
+-ITEMSLIST -> You should be able to filter by category and by location (user´s city/postal code)
 
 ### NICE TO HAVES
 -ITEM DETAIL 

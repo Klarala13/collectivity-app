@@ -13,7 +13,6 @@ const AddItemForm = () => {
   //If you want to share the item, you should be able to choose if it´s for one day, one week or one month.
   return (
     <Container>
-      <Text>Share item</Text>
       <Input
         autoCapitalize="none"
         marginBottom={sizes.m}
