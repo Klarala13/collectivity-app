@@ -52,19 +52,6 @@ const Home = () => {
           This would be a widget with recently uploaded items
         </Text>
       </Container>
-
-      {/* Login Register Link  */}
-      {/* <Container>
-        <Text
-          style={{
-            textAlign: 'left',
-            color: '#000',
-            fontSize: 24,
-            padding: 20,
-          }}>
-          This would be a widget with recently uploaded items
-        </Text>
-      </Container> */}
     </>
   );
 };

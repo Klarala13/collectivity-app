@@ -30,15 +30,16 @@ const Button = (props: ButtonProps) => {
     button: {
       backgroundColor: bgColor,
       color: color,
-      boxShadow: '0 0 8px rgba(0, 0, 0, 0.5)',
       borderRadius: 15,
       textAlign: 'center',
       justifyContent: 'center',
+      padding: 20,
+      maxWidth: 200,
+      margin: 'auto',
     },
     button_hover: {
       backgroundColor: hoverBgColor,
       color: hoverColor,
-      boxShadow: '0 0 8px rgba(0, 0, 0, 0.5)',
       borderRadius: 15,
       textAlign: 'center',
       justifyContent: 'center',

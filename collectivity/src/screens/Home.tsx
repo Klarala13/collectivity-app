@@ -1,12 +1,12 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AddItemForm from './AddItemForm';
-import MessagingScreen from './MessagingScreen';
 import Profile from './Profile';
 import {AntDesign, FontAwesome5} from '@expo/vector-icons';
 import {Block} from '../components';
 import ItemsList from './ItemsList';
 import Home from '../screens/HomeScreen';
+import Login from './Login';
 
 const Tab = createBottomTabNavigator();
 
@@ -67,11 +67,11 @@ const HomeScreen = () => {
             <Tab.Screen
               options={{
                 tabBarIcon: () => (
-                  <AntDesign name="message1" size={24} color="#7925C7" />
+                  <AntDesign name="login" size={24} color="#7925C7" />
                 ),
               }}
-              name="Messaging"
-              component={MessagingScreen}
+              name="Login"
+              component={Login}
             />
           </Tab.Navigator>
         </NavigationContainer>

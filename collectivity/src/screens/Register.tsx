@@ -8,7 +8,7 @@ import {
   useTranslation,
 } from '../hooks';
 import * as regex from '../constants/regex';
-import {Block, Input, Image, Checkbox} from '.';
+import {Block, Input, Image, Checkbox} from '../components';
 import {Text} from 'react-native';
 
 const isAndroid = Platform.OS === 'android';
