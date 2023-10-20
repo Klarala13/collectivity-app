@@ -6,7 +6,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-
     "description": "App for sharing items",
     "primaryColor": "#CB0C9F",
     "orientation": "portrait",
@@ -30,9 +29,10 @@
     },
     "web": {
       "favicon": "./assets/icon.png"
-    }
+    },
+    "plugins": [
+      "expo-localization"
+    ]
   },
   "name": "collectivity"
 }
-
-

@@ -1,26 +1,27 @@
 ### TO RUN THE APP
-To run your project, navigate to the directory and run one of the following npm commands.
+To run your project, you will need to use Expo or Xcode to compile the native code and display the app. 
+You can navigate to the "collectivity" directory and run one of the following npm commands:
 
 - cd collectivity
-- npm run android
-- npm run ios
-- npm run web
+- npx expo start
+
+then choose the device you would like to run it on 
 
 ### FRONTEND COMPONENTS
-Right now, all components are part of a template. It must be restructured to contain the real application.
 
 ToDo:
--Login screen -> send request and finish UI
 -Register screen
 -Messaging screen
 -PROFILE -> load user´s item´s 
--ITEMSLIST -> You should be able to filter by category and by location (user´s city/postal code)
 
 ### NICE TO HAVES
+-Fix Logo on IOS
 -ITEM DETAIL 
 -TRANSLATIONS
+-RATING SYSTEM FOR USERS
 -RECENTLY SEEN WIDGET, RECENTLY BORROWED WIDGET
 -GEO LOCALIZATION FOR DISPLAYING ITEMS NEAR YOU 
+-ITEMSLIST -> You should be able to filter by category and by location (user´s city/postal code)
 
 ### BACKEND ROUTES
 We will need to able to login, have an admin login, create/delete/update items and allow users to message eachother and admin. 

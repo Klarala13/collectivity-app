@@ -3,10 +3,12 @@ import {useTheme} from '../hooks';
 import * as regex from '../constants/regex';
 import {Button, Input} from '../components';
 import Container from '../components/Container';
-import {View, Alert} from 'react-native';
+import {View, Alert, Text} from 'react-native';
+import Register from './Register';
 
 const Login = () => {
   //Should call BE and handle login
+  const [showRegister, setShowRegister] = useState(false);
   const [isValid, setIsValid] = useState<any>({
     email: false,
     password: false,
@@ -19,7 +21,7 @@ const Login = () => {
 
   const handleChange = useCallback(
     (value: any) => {
-      setLogin((state) => ({...state, ...value}));
+      setLogin((state: any) => ({...state, ...value}));
     },
     [setLogin],
   );
@@ -36,12 +38,16 @@ const Login = () => {
     ]);
 
   useEffect(() => {
-    setIsValid((state) => ({
+    setIsValid((state: any) => ({
       ...state,
       email: regex.email.test(login.email),
       password: regex.password.test(login.password),
     }));
   }, [login, setIsValid]);
+
+  const displayRegister = () => {
+    setShowRegister(true);
+  };
 
   return (
     <>
@@ -77,12 +83,22 @@ const Login = () => {
         }}>
         <Button
           bgColor="#7925C7"
-          hoverColor="#7925C7"
+          color="#fff"
           hoverBgColor="#CCCCCC"
           onPress={() => handleLogin()}
           title="Login"
         />
       </View>
+      <Container>
+        <Text>Don´t have an account yet?</Text>
+        <Button
+          bgColor="#7925C7"
+          hoverBgColor="#CCCCCC"
+          onPress={() => displayRegister()}
+          title="Click here to register!"
+        />
+      </Container>
+      <View>{showRegister && <Register />}</View>
     </>
   );
 };
