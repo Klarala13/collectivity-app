@@ -5,18 +5,15 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "description": "App for sharing items",
+    ]
+    ,  "description": "App for sharing items",
     "primaryColor": "#CB0C9F",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./image/logo.png",
     "splash": {
-      "image": "./assets/icon.png",
+      "image": "./image/logo.png",
       "resizeMode": "cover",
       "backgroundColor": "#CB0C9F"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
     },
     "ios": {
       "supportsTablet": true
@@ -28,11 +25,8 @@
       }
     },
     "web": {
-      "favicon": "./assets/icon.png"
-    },
-    "plugins": [
-      "expo-localization"
-    ]
+      "favicon": "./image/logo.png"
+    }
   },
   "name": "collectivity"
 }

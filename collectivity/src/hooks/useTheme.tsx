@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {light} from '../constants/';
+import {light} from '../constants';
 import {ITheme, IThemeProvider} from '../constants/types';
 
 export const ThemeContext = React.createContext({

@@ -53,13 +53,10 @@ export interface ITheme {
   sizes: ThemeSizes & ThemeSpacing & ICommonTheme['sizes'];
   assets: ThemeAssets & ThemeIcons;
   icons: ThemeIcons;
-  fonts: ThemeFonts;
   weights: ThemeWeights;
   lines: ThemeLineHeights;
 }
 export interface ICommonTheme {
-  assets: ThemeAssets & ThemeIcons;
-  icons: ThemeIcons;
   weights: ThemeWeights;
   lines: ThemeLineHeights;
   sizes: {

@@ -5,8 +5,8 @@ import Profile from './Profile';
 import {AntDesign, FontAwesome5} from '@expo/vector-icons';
 import {Block} from '../components';
 import ItemsList from './ItemsList';
-import Home from '../screens/HomeScreen';
-import Login from './Login';
+import Home from './HomeScreen';
+//import Login from './Login';
 
 const Tab = createBottomTabNavigator();
 
@@ -64,7 +64,7 @@ const HomeScreen = () => {
               component={Profile}
             />
 
-            <Tab.Screen
+            {/* <Tab.Screen
               options={{
                 tabBarIcon: () => (
                   <AntDesign name="login" size={24} color="#7925C7" />
@@ -72,7 +72,7 @@ const HomeScreen = () => {
               }}
               name="Login"
               component={Login}
-            />
+            /> */}
           </Tab.Navigator>
         </NavigationContainer>
       </Block>
