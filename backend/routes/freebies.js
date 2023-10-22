@@ -81,4 +81,25 @@ router.get("/user/:user_id", async (req, res, next) => {
     }
 });
 
+router.post("/create", async (req, res, next) => {
+    const { user_id, item, description, image, zip_code, location, category } =
+        req.body;
+
+    try {
+        const newFreebie = await Freebie.create({
+            user_id: user_id,
+            item: item,
+            description: description,
+            image: image,
+            zip_code: zip_code,
+            location: location,
+            category: category,
+        });
+
+        res.json({ message: "Freebie added", data: newFreebie });
+    } catch (error) {
+        next(error);
+    }
+});
+
 module.exports = router;

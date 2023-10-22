@@ -17,6 +17,9 @@ module.exports = {
         if (user !== null) {
             const itemId1 = uuidv4();
             const itemId2 = uuidv4();
+            const itemId3 = uuidv4();
+            const itemId4 = uuidv4();
+            const itemId5 = uuidv4();
 
             await queryInterface.bulkInsert("freebies", [
                 {
@@ -36,6 +39,42 @@ module.exports = {
                     item: "Cup",
                     description: "Colorful, not very used",
                     image: "https://images.pexels.com/photos/433199/pexels-photo-433199.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+                    zip_code: "12345",
+                    location: "My house",
+                    category: "House_Garden",
+                    user_id: user,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                },
+                {
+                    item_id: itemId3,
+                    item: "Book",
+                    description: "Code",
+                    image: "https://m.media-amazon.com/images/I/515myo2UtFL._AC_UY218_.jpg",
+                    zip_code: "12345",
+                    location: "My house",
+                    category: "House_Garden",
+                    user_id: user,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                },
+                {
+                    item_id: itemId4,
+                    item: "Book",
+                    description: "Lord of the rings",
+                    image: "https://m.media-amazon.com/images/I/A1EgynjIE-L._AC_UL320_.jpg",
+                    zip_code: "12345",
+                    location: "My house",
+                    category: "House_Garden",
+                    user_id: user,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                },
+                {
+                    item_id: itemId5,
+                    item: "Book",
+                    description: "Stiff",
+                    image: "https://m.media-amazon.com/images/I/71Bl7sCyC+L._AC_UY218_.jpg",
                     zip_code: "12345",
                     location: "My house",
                     category: "House_Garden",
