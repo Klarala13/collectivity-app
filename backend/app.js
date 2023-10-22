@@ -13,6 +13,8 @@ const usersRouter = require("./routes/users");
 const freebiesRouter = require("./routes/freebies");
 const authRouter = require("./routes/auth");
 
+const { verifyAccessToken } = require("./middleware/tokenHandler");
+
 connectToDatabase();
 
 app.use(logger("dev"));
@@ -25,9 +27,9 @@ app.get("/", function (req, res) {
     });
 });
 
-app.use("/user", usersRouter);
-app.use("/freebie", freebiesRouter);
 app.use("/auth", authRouter);
+app.use("/user", verifyAccessToken, usersRouter);
+app.use("/freebie", verifyAccessToken, freebiesRouter);
 
 app.use((req, res, next) => {
     const error = new createError.NotFound();
