@@ -10,8 +10,9 @@ then choose the device you would like to run it on
 
 ### ToDo
 
-- Fix logo issues
+- Logout button should be turquoise
 - Add ratings for users
 - Legal terms and conditions
 - geo localization for displaying items near you
 - Translations
+- Edit profile screen functionality

@@ -14,6 +14,9 @@ app.use(setCorsHeaders);
 
 const usersRouter = require("./routes/users");
 const freebiesRouter = require("./routes/freebies");
+const authRouter = require("./routes/auth");
+const timeoffersRouter = require("./routes/timeoffers");
+const messagesRouter = require("./routes/messages");
 
 connectToDatabase();
 
@@ -29,6 +32,9 @@ app.get("/", function (req, res) {
 
 app.use("/user", usersRouter);
 app.use("/freebies", freebiesRouter);
+app.use("/auth", authRouter);
+app.use("/timeoffers", timeoffersRouter);
+app.use("/messages", messagesRouter);
 
 app.use((req, res, next) => {
     const error = new createError.NotFound();

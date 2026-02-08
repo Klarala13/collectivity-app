@@ -1,84 +1,90 @@
 const express = require("express");
-const Freebie = require("../models/freebieModel");
 const router = express.Router();
+const { body, param } = require("express-validator");
+const authMiddleware = require("../middleware/auth");
+const {
+    getAllFreebies,
+    getFreebieById,
+    createFreebie,
+    updateFreebie,
+    deleteFreebie,
+    getFreebiesByUserId,
+} = require("../lib/controllers/freebieController");
 
-/**
- * Freebie ROUTE
- * /freebie:
- *   get:
- *     summary: Display list of freebies
- *     description: Render all freebies from database
- * @param req  The incoming request.
- * @param res  The outgoing response.
- * @param next Next to call in chain of middleware.
- *
- * @returns {void}
- */
-router.get("/", async (req, res, next) => {
-    try {
-        const freebies = await Freebie.findAll();
-        res.json({
-            message: { freebies },
-        });
-    } catch (error) {
-        next(error);
-    }
-});
+// Validation middleware
+const validateFreebieId = [
+    param("id").isUUID().withMessage("Invalid freebie ID format"),
+];
 
-/**
- * Freebie ROUTE
- *  /item/:item_id:
- *   get:
- *     summary: One Freebie
- *     description: Render Freebie by item ID
- *  @param req  The incoming request.
- *  @param res  The outgoing response.
- *  @param next Next to call in chain of middleware.
- *
- * @returns {void}
- */
-router.get("/item/:item_id", async (req, res, next) => {
-    const freebieId = req.params.item_id;
-    if (freebieId) {
-        try {
-            const oneFreebie = await Freebie.findOne({
-                where: { item_id: freebieId },
-            });
-            res.json({
-                message: { oneFreebie },
-            });
-        } catch (error) {
-            next(error);
-        }
-    }
-});
+const validateCreateFreebie = [
+    body("item")
+        .trim()
+        .notEmpty()
+        .withMessage("Item name is required")
+        .isLength({ max: 30 })
+        .withMessage("Item name must not exceed 30 characters"),
+    body("description")
+        .optional()
+        .isLength({ max: 300 })
+        .withMessage("Description must not exceed 300 characters"),
+    body("category")
+        .trim()
+        .notEmpty()
+        .withMessage("Category is required"),
+    body("image")
+        .optional()
+        .trim(),
+    body("zip_code")
+        .optional()
+        .isInt()
+        .withMessage("Zip code must be a number"),
+    body("location")
+        .optional()
+        .trim(),
+];
 
-/**
- * Freebie ROUTE
- *  /user/:user_id:
- *   get:
- *     summary: All Freebies that a user has
- *     description: Render all Freebies by user ID
- *  @param req  The incoming request.
- *  @param res  The outgoing response.
- *  @param next Next to call in chain of middleware.
- *
- * @returns {void}
- */
-router.get("/user/:user_id", async (req, res, next) => {
-    const userId = req.params.user_id;
-    if (userId) {
-        try {
-            const allFreebieByUser = await Freebie.findAll({
-                where: { user_id: userId },
-            });
-            res.json({
-                message: { allFreebieByUser },
-            });
-        } catch (error) {
-            next(error);
-        }
-    }
-});
+const validateUpdateFreebie = [
+    param("id").isUUID().withMessage("Invalid freebie ID format"),
+    body("item")
+        .optional()
+        .trim()
+        .notEmpty()
+        .withMessage("Item name cannot be empty")
+        .isLength({ max: 30 })
+        .withMessage("Item name must not exceed 30 characters"),
+    body("description")
+        .optional()
+        .isLength({ max: 300 })
+        .withMessage("Description must not exceed 300 characters"),
+    body("category")
+        .optional()
+        .trim()
+        .notEmpty()
+        .withMessage("Category cannot be empty"),
+    body("image")
+        .optional()
+        .trim(),
+    body("zip_code")
+        .optional()
+        .isInt()
+        .withMessage("Zip code must be a number"),
+    body("location")
+        .optional()
+        .trim(),
+];
+
+const validateUserId = [
+    param("userId").isUUID().withMessage("Invalid user ID format"),
+];
+
+// Public routes
+router.get("/", getAllFreebies);
+router.get("/:id", validateFreebieId, getFreebieById);
+router.get("/user/:userId", validateUserId, getFreebiesByUserId);
+
+// Protected routes (require authentication)
+router.post("/", authMiddleware, validateCreateFreebie, createFreebie);
+router.patch("/:id", authMiddleware, validateUpdateFreebie, updateFreebie);
+router.delete("/:id", authMiddleware, validateFreebieId, deleteFreebie);
 
 module.exports = router;
