@@ -14,9 +14,9 @@ export const COLORS: ThemeColors = {
 
   // base colors
   /** UI color for #primary */
-  primary: '#CB0C9F',
+  primary: '#7925C7', // Collectivity purple
   /** UI color for #secondary */
-  secondary: '#627594', // '#8392AB',
+  secondary: '#CB0C9F', // Collectivity magenta
   /** UI color for #tertiary */
   tertiary: '#E8AE4C',
 
@@ -50,7 +50,7 @@ export const COLORS: ThemeColors = {
   overlay: 'rgba(0,0,0,0.3)',
 
   /** UI color for input borderColor on focus */
-  focus: '#E293D3',
+  focus: '#7925C7', // Collectivity purple for focus state
   input: '#252F40',
 
   /** UI color for switch checked/active color */
@@ -73,11 +73,11 @@ export const COLORS: ThemeColors = {
   blurTint: 'light',
 
   /** product link color */
-  link: '#CB0C9F',
+  link: '#7925C7', // Collectivity purple for links
 };
 
 export const GRADIENTS: ThemeGradients = {
-  primary: ['#FF0080', '#7928CA'],
+  primary: ['#CB0C9F', '#7925C7'], // Collectivity gradient (magenta to purple)
   secondary: ['#A8B8D8', '#627594'],
   info: ['#21D4FD', '#2152FF'],
   success: ['#98EC2D', '#17AD37'],
@@ -185,4 +185,6 @@ export const THEME: ITheme = {
   colors: COLORS,
   gradients: GRADIENTS,
   sizes: {...SIZES, ...commonTheme.sizes, ...SPACING},
+  assets: {} as any, // Using Expo vector icons instead
+  icons: {} as any, // Using Expo vector icons instead
 };

@@ -9,9 +9,9 @@
     ,  "description": "App for sharing items",
     "primaryColor": "#CB0C9F",
     "orientation": "portrait",
-    "icon": "./image/logo.png",
+    "icon": "./src/image/logo.png",
     "splash": {
-      "image": "./image/logo.png",
+      "image": "./src/image/logo.png",
       "resizeMode": "cover",
       "backgroundColor": "#CB0C9F"
     },
@@ -20,12 +20,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./src/image/logo.png",
         "backgroundColor": "#CB0C9F"
       }
     },
     "web": {
-      "favicon": "./image/logo.png"
+      "favicon": "./src/image/logo.png"
     }
   },
   "name": "collectivity"
